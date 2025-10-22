@@ -1,0 +1,140 @@
+:root {
+  --grey-text: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* Status Messages */
+.status-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.status-message.error {
+  color: #dc3545;
+}
+
+/* Podcast Grid */
+.podcast-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 1rem;
+}
+
+/* Podcast Card */
+.podcast-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.podcast-card:hover {
+  transform: scale(1.02);
+}
+
+.podcast-image {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.podcast-info h3 {
+  margin: 0.5rem 0;
+}
+
+.meta {
+  margin: 0px;
+  font-size: 0.8rem;
+  color: var(--grey-text);
+}
+
+.genres {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  color: var(--grey-text);
+}
+
+.date {
+  font-size: 0.8rem;
+  color: var(--grey-text);
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.status-message {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Focus States for Accessibility */
+.podcast-card:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .podcast-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+  }
+  
+  .podcast-card {
+    padding: 0.75rem;
+  }
+}
+

@@ -33,3 +33,11 @@ function Pagination({ page, totalPages, onPage }) {
   );
 }
 
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  onPage: PropTypes.func.isRequired,
+};
+
+export default Pagination;

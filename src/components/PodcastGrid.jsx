@@ -1,6 +1,8 @@
 // src/components/PodcastGrid.jsx
-
-import PodcastCard from './PodcastCard';
+import PodcastList from './PodcastList';
+import Controls from './Controls';
+import Pagination from './Pagination';
+import { usePodcasts } from '../hooks/usePodcasts';
 
 /**
  * PodcastGrid component - Fetches and renders a responsive grid of podcast cards.

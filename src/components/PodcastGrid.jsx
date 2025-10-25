@@ -66,18 +66,6 @@ function PodcastGrid() {
     );
   }
 
-  if (podcasts.length === 0) {
-    return (
-      <div className="status-message">
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📻</div>
-          <div style={{ fontWeight: '600', marginBottom: '0.5rem' }}>No podcasts found</div>
-          <div style={{ fontSize: '0.9rem', opacity: '0.8' }}>There are no podcasts available at the moment.</div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="podcast-grid">
       {podcasts.map((podcast) => (

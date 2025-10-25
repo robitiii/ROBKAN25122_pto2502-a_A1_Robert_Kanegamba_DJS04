@@ -18,28 +18,23 @@ import { usePodcasts } from '../hooks/usePodcasts';
  * <PodcastGrid />
  */
 function PodcastGrid() {
-  const [podcasts, setPodcasts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const data = await fetchPodcasts();
-        if (data.length === 0) {
-          setError('No podcasts found.');
-        } else {
-          setPodcasts(data);
-        }
-      } catch (err) {
-        setError('Failed to fetch podcasts. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadData();
-  }, []);
+   const {
+    loading,
+    error,
+    query,
+    setQuery,
+    sort,
+    setSort,
+    genre,
+    setGenre,
+    page,
+    setPage,
+    perPage,
+    setPerPage,
+    total,
+    totalPages,
+    visible,
+  } = usePodcasts({ initialPerPage: 12 });
 
   if (loading) {
     return (

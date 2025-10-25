@@ -67,11 +67,27 @@ function PodcastGrid() {
   }
 
   return (
-    <div className="podcast-grid">
-      {podcasts.map((podcast) => (
-        <PodcastCard key={podcast.id} podcast={podcast} />
-      ))}
+    <div>
+      <Controls
+        query={query}
+        onQuery={setQuery}
+        sort={sort}
+        onSort={setSort}
+        genre={genre}
+        onGenre={setGenre}
+        perPage={perPage}
+        onPerPage={setPerPage}
+      />
+
+      <PodcastList items={visible} />
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem' }}>
+        <div style={{ fontSize: '0.9rem' }}>{total} results</div>
+        <Pagination page={page} totalPages={totalPages} onPage={setPage} />
+      </div>
     </div>
   );
 }
+
+
 export default PodcastGrid;

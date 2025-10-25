@@ -22,3 +22,8 @@ function PodcastList({ items }) {
   );
 }
 
+PodcastList.propTypes = {
+  items: PropTypes.array.isRequired,
+};
+
+export default PodcastList;

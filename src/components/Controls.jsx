@@ -35,3 +35,4 @@ function Controls({ query, onQuery, sort, onSort, genre, onGenre, perPage, onPer
     </div>
   );
 }
+Controls.propTypes = { query: PropTypes.string, onQuery: PropTypes.func.isRequired, sort: PropTypes.string, onSort: PropTypes.func.isRequired, genre: PropTypes.string, onGenre: PropTypes.func.isRequired, perPage: PropTypes.number, onPerPage: PropTypes.func.isRequired, }; export default Controls;

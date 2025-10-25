@@ -1,6 +1,5 @@
 // src/components/PodcastGrid.jsx
-import { useEffect, useState } from 'react';
-import { fetchPodcasts } from '../api/fetchPodcasts';
+
 import PodcastCard from './PodcastCard';
 
 /**

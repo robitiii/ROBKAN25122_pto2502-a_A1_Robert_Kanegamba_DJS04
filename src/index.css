@@ -173,6 +173,35 @@ body {
 .controls select:hover {
   border-color: #007bff;
 }
+/* Enhanced PodcastList Styles */
+.podcast-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  padding: 1.5rem;
+  margin: 0 1rem;
+}
+
+.status-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  text-align: center;
+  background: white;
+  border-radius: 12px;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  color: var(--grey-text);
+}
+
+.status-message.error {
+  color: #dc3545;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
 /* Focus States for Accessibility */
 .podcast-card:focus-within {
   outline: 2px solid #007bff;

@@ -1,16 +1,120 @@
-# React + Vite
+# DJS04: React Podcast Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+In this project, you will build the landing page for a podcast discovery app using **React**. Your goal is to fetch podcast data from an external API and dynamically render a **responsive grid of podcast previews**. This project focuses on **data fetching**, **component structure**, **rendering logic**, and **layout styling**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Core Objectives
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Fetch podcast data from an API: https://podcast-api.netlify.app/ on initial page load.
+- Display a loading indicator while data is being fetched, and handle errors or empty results with a clear user message.
+- Render a responsive **grid layout** of podcast previews using modular, reusable React components.
+- Pass podcast data into components via props and render each podcast card with the following:
+  - Podcast **image**
+  - Podcast **title**
+  - Number of **seasons**
+  - Associated **genre names**
+  - Formatted **last updated** date (e.g., "2 days ago")
+- Apply clean, consistent layout and styling across different screen sizes using CSS Grid or Flexbox.
+- Maintain high-quality, readable code with clear structure and **JSDoc comments** for key functions and components.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technical Requirements
+
+- Use **React functional components**
+- Use the **Fetch API**
+- Use `useEffect()` to fetch data once on mount
+- Use `useState()` to manage podcast data
+- Use `.map()` to dynamically render PodcastPreviewCard components
+- Format dates using `date-fns` or a custom formatter
+
+---
+
+## Responsiveness Requirements
+
+- Must look good on:
+  - Desktop (≥1200px)
+  - Tablet (~768px)
+  - Mobile (~375px)
+- Use **CSS Grid** or **Flexbox**
+- Media queries or frameworks like **Tailwind CSS** are allowed
+
+---
+
+## Deliverables
+
+- **Functional React Application**
+
+  - A working React app that fetches podcast data from an external API on initial load.
+  - The app renders a grid of podcast previews using reusable components.
+
+- **Loading, Error, and Empty States**
+
+  - A clear loading indicator is displayed while fetching data.
+  - Meaningful error or empty state messaging is shown if the fetch fails or returns no results.
+
+- **Podcast Preview Card Component**
+
+  - A reusable component that displays:
+    - Podcast image
+    - Podcast title
+    - Number of seasons
+    - Genre tags
+    - Last updated date in a human-readable format (e.g., "3 days ago")
+
+- **Responsive Layout**
+
+  - Grid layout that adapts to mobile, tablet, and desktop screen sizes using responsive design principles.
+
+- **Codebase**
+  - Clean, modular code with clearly separated components.
+  - All major functions and modules documented with **JSDoc** comments.
+  - Consistent formatting across JavaScript, JSX, HTML, and CSS files.
+
+## Features added to this project
+
+- Search: live, case-insensitive search by podcast title.
+- Sort: sort by newest updated, title A–Z, or title Z–A.
+- Filter: genre filtering via a simple dropdown (uses a small local genre list).
+- Pagination: numeric pagination with Prev/Next and configurable items per page.
+
+All features are managed by a single hook `usePodcasts` located at `src/hooks/usePodcasts.js`. The hook fetches data (using the existing `fetchPodcasts` API helper) and exposes state and handlers for query, sort, genre, page, and perPage. Controls are in `src/components/Controls.jsx`, the list is `src/components/PodcastList.jsx` and pagination is `src/components/Pagination.jsx`.
+
+State synchronization notes:
+
+- Changing search or genre resets the page to 1 so results are predictable.
+- Sorting keeps the current page (to avoid surprising jumps), but you can change this behavior easily in `usePodcasts`.
+- `usePodcasts` returns `visible`, `total`, and `totalPages` for the UI to render the current slice.
+
+## How to run
+
+Install and run the dev server:
+
+```powershell
+cd my-podcast-app; npm install; npm run dev
+```
+## Features added to this project
+
+- Search: live, case-insensitive search by podcast title.
+- Sort: sort by newest updated, title A–Z, or title Z–A.
+- Filter: genre filtering via a simple dropdown (uses a small local genre list).
+- Pagination: numeric pagination with Prev/Next and configurable items per page.
+
+All features are managed by a single hook `usePodcasts` located at `src/hooks/usePodcasts.js`. The hook fetches data (using the existing `fetchPodcasts` API helper) and exposes state and handlers for query, sort, genre, page, and perPage. Controls are in `src/components/Controls.jsx`, the list is `src/components/PodcastList.jsx` and pagination is `src/components/Pagination.jsx`.
+
+State synchronization notes:
+
+- Changing search or genre resets the page to 1 so results are predictable.
+- Sorting keeps the current page (to avoid surprising jumps), but you can change this behavior easily in `usePodcasts`.
+- `usePodcasts` returns `visible`, `total`, and `totalPages` for the UI to render the current slice.
+
+## How to run
+
+Install and run the dev server:
+
+```powershell
+cd my-podcast-app; npm install; npm run dev
+```
